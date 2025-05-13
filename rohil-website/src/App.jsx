@@ -42,7 +42,9 @@ const PROJECTS = [
     title: "Vora",
     description: "Developed a personalized meal planning and tracking system using cosine similarity for meal recommendation, user profile-based filtering, and nutritional optimization, featuring a meal rating system with persistent storage and dynamic preference learning to enhance future suggestions.",
     tech: ["Flask", "Tailwind CSS", "Python", "React", "Selenium", "SQLAlchemy", "TypeScript"],
-    link: "https://github.com/tbachu/Vora"
+    link: "https://github.com/tbachu/Vora",
+    liveLink: "https://vora-nutrition-git-main-tanish-bachus-projects.vercel.app/",
+    image: "/Screenshot 2025-05-13 at 10.30.58 AM.png"
   },
   {
     title: "Insert Here",
@@ -140,6 +142,28 @@ const cardVariants = {
   hover: {
     y: -5,
     scale: 1.02,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10
+    }
+  }
+};
+
+const skillsCardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100
+    }
+  },
+  hover: {
+    y: -5,
+    scale: 1.02,
+    boxShadow: "0 0 30px rgba(45,212,191,0.15)",
     transition: {
       type: "spring",
       stiffness: 400,
@@ -272,13 +296,11 @@ function TabContent({ tab }) {
             {SKILLS.map((skillGroup, index) => (
               <motion.div
                 key={skillGroup.category}
-                variants={item}
-                whileHover={{ 
-                  scale: 1.02,
-                  rotateZ: [0, -1, 1, 0],
-                  transition: { duration: 0.2 }
-                }}
-                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/20 transition-all"
+                variants={skillsCardVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover="hover"
+                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/40 transition-all"
               >
                 <h3 className="text-xl font-semibold mb-4 text-teal-400">{skillGroup.category}</h3>
                 <div className="flex flex-wrap gap-3 justify-center">
@@ -340,7 +362,7 @@ function TabContent({ tab }) {
           >
             Projects
           </motion.h2>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PROJECTS.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -348,18 +370,56 @@ function TabContent({ tab }) {
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
-                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/20 transition-all"
+                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-5 border border-white/5 hover:border-teal-500/40 transition-all flex flex-col h-full hover:shadow-[0_0_30px_rgba(45,212,191,0.15)] hover:bg-[#1c2538]"
               >
-                <div className="flex justify-between items-start">
-                  <h3 className="text-2xl font-bold mb-2 text-teal-400">{project.title}</h3>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300">
-                    <ExternalLink size={20} />
-                  </a>
+                {project.image && (
+                  <div className="mb-4 rounded-lg overflow-hidden group relative">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-auto max-h-[280px] object-contain rounded-lg hover:scale-[1.02] transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="flex gap-4">
+                        {project.liveLink && (
+                          <a 
+                            href={project.liveLink} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="bg-teal-500/20 p-2 rounded-full hover:bg-teal-500/30 transition-colors"
+                          >
+                            <ExternalLink size={24} className="text-white" />
+                          </a>
+                        )}
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="bg-teal-500/20 p-2 rounded-full hover:bg-teal-500/30 transition-colors"
+                        >
+                          <Github size={24} className="text-white" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-teal-400">{project.title}</h3>
+                  <div className="flex gap-2">
+                    {project.liveLink && (
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-teal-400/70 hover:text-teal-300">
+                        <ExternalLink size={16} />
+                      </a>
+                    )}
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-400/70 hover:text-teal-300">
+                      <Github size={16} />
+                    </a>
+                  </div>
                 </div>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-gray-300 text-sm mb-4 flex-grow">{project.description}</p>
+                <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="px-2 py-1 rounded-full bg-teal-500/10 text-sm text-teal-300 border border-teal-500/20">
+                    <span key={tech} className="px-2 py-0.5 rounded-full bg-teal-500/10 text-xs text-teal-300/90 border border-teal-500/10">
                       {tech}
                     </span>
                   ))}
@@ -386,7 +446,7 @@ function TabContent({ tab }) {
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
-                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/20 transition-all"
+                className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/40 transition-all hover:shadow-[0_0_30px_rgba(45,212,191,0.15)] hover:bg-[#1c2538]"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar size={16} className="text-teal-400" />
@@ -397,7 +457,7 @@ function TabContent({ tab }) {
                 <p className="text-gray-300 mb-4">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
-                    <span key={tech} className="px-2 py-1 rounded-full bg-teal-500/10 text-sm text-teal-300 border border-teal-500/20">
+                    <span key={tech} className="px-2 py-1 rounded-full bg-teal-500/10 text-sm text-teal-300 border border-teal-500/10">
                       {tech}
                     </span>
                   ))}
