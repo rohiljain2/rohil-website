@@ -42,23 +42,32 @@ const TABS = [
 const PROJECTS = [
   {
     title: "Vora",
-    description: "Developed a personalized meal planning and tracking system using cosine similarity for meal recommendation, user profile-based filtering, and nutritional optimization, featuring a meal rating system with persistent storage and dynamic preference learning to enhance future suggestions.",
-    tech: ["Flask", "Tailwind CSS", "Python", "React", "Selenium", "SQLAlchemy", "TypeScript"],
+    description: <>
+      <div className="text-lg md:text-xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text">🏆 HackDuke Track Winner 2025</div>
+      <div>Developed a personalized meal planning and tracking system using cosine similarity for meal recommendation, user profile-based filtering, and nutritional optimization, featuring a meal rating system with persistent storage and dynamic preference learning to enhance future suggestions.</div>
+    </>,
+    tech: ["Flask", "Tailwind CSS", "JavaScript", "Python", "React", "Selenium", "SQLAlchemy", "TypeScript", "Anthropic API"],
     link: "https://github.com/tbachu/Vora",
     liveLink: "https://vora-nutrition-git-main-tanish-bachus-projects.vercel.app/",
     image: "/Screenshot 2025-05-13 at 10.30.58 AM.png"
   },
   {
-    title: "Insert Here",
-    description: "Insert Description Here",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    link: "https://github.com/yourusername/ecommerce"
+    title: "Algorithmic Trading Bot",
+    description: <>
+      <div>Built an algorithmic trading bot that analyzes S&P 500 equities using technical indicators (SMA, EMA, RSI, MACD), statistical arbitrage, machine learning models (regression, classification), and Monte Carlo simulations to optimize stock selection.</div>
+    </>,
+    tech: ["Python", "Random forest", "Scikit-learn", "YFinance API", "SVM", "Monte-Carlo simulations"],
+    link: "https://github.com/rohiljain2/algorithmic_trading",
+    image: "/Screenshot 2025-05-13 at 1.27.46 PM.png"
   },
   {
-    title: "Insert Here",
-    description: "Insert Description Here",
-    tech: ["React", "Firebase", "React DnD"],
-    link: "https://github.com/yourusername/taskmanager"
+    title: "Fiscatch - Phishing Detection App",
+    description: <>
+      <div className="text-lg md:text-xl font-bold mb-2 bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text">🏆 CT Science Fair 5th Place Winner</div>
+      <div>Developed a phishing detection system using RoBERTa-based LLM and RNN models in Python to classify over 20,000 emails through advanced NLP and metadata analysis.</div>
+    </>,
+    tech: ["Python", "PyTorch", "NLP", "Transformers", "Neural Networks", "LLMs", "Streamlit"],
+    image: "/Screenshot 2025-05-13 at 12.49.57 PM.png"
   }
 ];
 
@@ -79,26 +88,30 @@ const SKILLS = [
 
 const EXPERIENCE = [
   {
-    title: "Insert Role Here",
-    company: "Company Here",
-    period: "2023 - Present",
-    description: "Insert Description Here",
-    technologies: ["React", "Node.js", "AWS"]
-  },
-  {
-    title: "Insert Role Here",
-    company: "Company Here",
-    period: "2021 - 2023",
-    description: "Developed and maintained full-stack applications",
-    technologies: ["TypeScript", "Python", "MongoDB"]
-  },
-  {
-    title: "Insert Role Here",
-    company: "Company Here",
-    period: "2020 - 2021",
+    title: "Early Insights Participant",
+    company: "Morgan Stanley",
+    period: "Feb. 2025 - Feb. 2025",
     description: "Insert Description Here",
     technologies: ["JavaScript", "HTML/CSS", "Express"]
-  }
+  },
+  {
+    title: "AI Researcher",
+    company: "UNC Gillings School of Global Public Health",
+    period: "Sept. 2024 - Present",
+    description: "Insert Description Here",
+    technologies: ["React", "Node.js", "AWS"],
+    image: "/Screenshot 2025-05-13 at 2.55.55 PM.png",
+    imagePosition: "right"
+  },
+  {
+    title: "Software Engineering Intern",
+    company: "AdhereHealth",
+    period: " Jun. 2023 - Sept. 2023",
+    description: "Developed and maintained full-stack applications",
+    technologies: ["TypeScript", "Python", "MongoDB"],
+    image: "/Screenshot 2025-05-13 at 2.55.06 PM.png",
+    imagePosition: "right"
+  },
 ];
 
 const SOCIAL_LINKS = [
@@ -397,14 +410,16 @@ function TabContent({ tab }) {
                             <ExternalLink size={24} className="text-white" />
                           </a>
                         )}
-                        <a 
-                          href={project.link} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="bg-teal-500/20 p-2 rounded-full hover:bg-teal-500/30 transition-colors"
-                        >
-                          <Github size={24} className="text-white" />
-                        </a>
+                        {project.link && (
+                          <a 
+                            href={project.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="bg-teal-500/20 p-2 rounded-full hover:bg-teal-500/30 transition-colors"
+                          >
+                            <Github size={24} className="text-white" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -417,9 +432,11 @@ function TabContent({ tab }) {
                         <ExternalLink size={16} />
                       </a>
                     )}
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-400/70 hover:text-teal-300">
-                      <Github size={16} />
-                    </a>
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-teal-400/70 hover:text-teal-300">
+                        <Github size={16} />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <p className="text-gray-300 text-sm mb-4 flex-grow">{project.description}</p>
@@ -454,19 +471,33 @@ function TabContent({ tab }) {
                 whileHover="hover"
                 className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/40 transition-all hover:shadow-[0_0_30px_rgba(45,212,191,0.15)] hover:bg-[#1c2538]"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <Calendar size={16} className="text-teal-400" />
-                  <span className="text-teal-400">{exp.period}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-100">{exp.title}</h3>
-                <h4 className="text-xl text-teal-400 mb-2">{exp.company}</h4>
-                <p className="text-gray-300 mb-4">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <span key={tech} className="px-2 py-1 rounded-full bg-teal-500/10 text-sm text-teal-300 border border-teal-500/10">
-                      {tech}
-                    </span>
-                  ))}
+                <div className={`flex ${exp.imagePosition === 'right' ? 'flex-row' : 'flex-col'} gap-6`}>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Calendar size={16} className="text-teal-400" />
+                      <span className="text-teal-400">{exp.period}</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-100">{exp.title}</h3>
+                    <h4 className="text-xl text-teal-400 mb-2">{exp.company}</h4>
+                    <p className="text-gray-300 mb-4">{exp.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <span key={tech} className="px-2 py-1 rounded-full bg-teal-500/10 text-sm text-teal-300 border border-teal-500/10">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {exp.image && (
+                    <div className={`flex-1 ${exp.imagePosition === 'right' ? 'ml-4' : 'mt-4'} flex items-center`}>
+                      <img 
+                        src={exp.image} 
+                        alt={`${exp.company} work`}
+                        className={`w-full h-auto rounded-lg hover:scale-[1.02] transition-transform duration-300 object-contain
+                          ${exp.company === "AdhereHealth" ? "max-h-[200px]" : "max-h-[280px]"}`}
+                      />
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -508,7 +539,7 @@ export default function App() {
       {/* Main content */}
       <div className="container mx-auto px-4 py-12 relative z-10">
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 p-6 flex justify-center gap-4 bg-slate-900/50 backdrop-blur-md border-b border-white/5">
+        <nav className="fixed top-0 left-0 right-0 p-6 flex justify-center gap-4 bg-slate-900/50 backdrop-blur-md border-b border-white/5 z-50">
         {TABS.map((tab, i) => (
           <motion.button
             key={tab.id}
