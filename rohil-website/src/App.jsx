@@ -30,7 +30,8 @@ const TECH_ICONS = {
   Java: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
   C: 'https://cdn.simpleicons.org/c/white',
   'C++': 'https://cdn.simpleicons.org/cplusplus',
-  MySQL: 'https://cdn.simpleicons.org/mysql'
+  MySQL: 'https://cdn.simpleicons.org/mysql',
+  Jira: 'https://cdn.simpleicons.org/jira'
 };
 
 const TABS = [
@@ -81,8 +82,8 @@ const SKILLS = [
     items: ["Node.js", "Python", "Java", "C", "C++", "PostgreSQL", "MySQL", "Flask"] 
   },
   { 
-    category: "Languages & Tools", 
-    items: ["Git", "Docker", "AWS", "VS Code", "Selenium"] 
+    category: "Tools", 
+    items: ["Git", "Docker", "AWS", "VS Code", "Selenium", "Jira"] 
   }
 ];
 
@@ -91,15 +92,17 @@ const EXPERIENCE = [
     title: "Early Insights Participant",
     company: "Morgan Stanley",
     period: "Feb. 2025 - Feb. 2025",
-    description: "Insert Description Here",
-    technologies: ["JavaScript", "HTML/CSS", "Express"]
+    description: "Selected as a participant in Morgan Stanley’s Early Insights Tech Program, gaining hands-on exposure to technology-driven finance, software engineering, and innovation through technical workshops, mentorship, and networking with senior technologists.",
+    technologies: [],
+    image: "/Screenshot 2025-05-13 at 3.14.52 PM.png",
+    imagePosition: "right"
   },
   {
     title: "AI Researcher",
     company: "UNC Gillings School of Global Public Health",
     period: "Sept. 2024 - Present",
-    description: "Insert Description Here",
-    technologies: ["React", "Node.js", "AWS"],
+    description: "Developed AI models using NLP and reinforcement learning on 15,000+ patient data points, improving cancer treatment recommendations by 25% and reducing healthcare decision-making bias by 30% through comparative analysis of KTO, DPO, and RLHF.",
+    technologies: ["Python", "PyTorch", "Tensorflow", "Hugging Face Transformers", "Optuna", "Google Cloud"],
     image: "/Screenshot 2025-05-13 at 2.55.55 PM.png",
     imagePosition: "right"
   },
@@ -107,8 +110,8 @@ const EXPERIENCE = [
     title: "Software Engineering Intern",
     company: "AdhereHealth",
     period: " Jun. 2023 - Sept. 2023",
-    description: "Developed and maintained full-stack applications",
-    technologies: ["TypeScript", "Python", "MongoDB"],
+    description: "Engineered automated ETL pipelines and implemented 300+ SQL-based data quality rules, reducing processing time by 40%, enhancing data integrity in healthcare analytics, and streamlining onboarding with detailed technical documentation and validation workflows.",
+    technologies: ["SQL", "Python", "PyTest", "Jira", "AWS", "Bash", "Confluence"],
     image: "/Screenshot 2025-05-13 at 2.55.06 PM.png",
     imagePosition: "right"
   },
