@@ -15,7 +15,6 @@ const TECH_ICONS = {
   'Framer Motion': 'https://cdn.simpleicons.org/framer',
   'Node.js': 'https://cdn.simpleicons.org/nodedotjs',
   Python: 'https://cdn.simpleicons.org/python',
-  MongoDB: 'https://cdn.simpleicons.org/mongodb',
   PostgreSQL: 'https://cdn.simpleicons.org/postgresql',
   Git: 'https://cdn.simpleicons.org/git',
   Docker: 'https://cdn.simpleicons.org/docker',
@@ -28,7 +27,10 @@ const TECH_ICONS = {
   JavaScript: 'https://cdn.simpleicons.org/javascript',
   HTML: 'https://cdn.simpleicons.org/html5',
   CSS: 'https://cdn.simpleicons.org/css3',
-  Express: 'https://cdn.simpleicons.org/express'
+  Java: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+  C: 'https://cdn.simpleicons.org/c/white',
+  'C++': 'https://cdn.simpleicons.org/cplusplus',
+  MySQL: 'https://cdn.simpleicons.org/mysql'
 };
 
 const TABS = [
@@ -67,11 +69,11 @@ const SKILLS = [
   },
   { 
     category: "Backend", 
-    items: ["Node.js", "Python", "MongoDB", "PostgreSQL", "Express", "Flask"] 
+    items: ["Node.js", "Python", "Java", "C", "C++", "PostgreSQL", "MySQL", "Flask"] 
   },
   { 
-    category: "Tools", 
-    items: ["Git", "Docker", "AWS", "VS Code"] 
+    category: "Languages & Tools", 
+    items: ["Git", "Docker", "AWS", "VS Code", "Selenium"] 
   }
 ];
 
@@ -315,7 +317,11 @@ function TabContent({ tab }) {
                       <img 
                         src={TECH_ICONS[skill]} 
                         alt={skill} 
-                        className={`${skill === 'AWS' ? 'w-12 h-5 object-contain' : 'w-5 h-5'}`}
+                        className={`${
+                          skill === 'AWS' ? 'w-12 h-5' :
+                          skill === 'C' ? 'w-4 h-4' :
+                          'w-5 h-5'
+                        } object-contain`}
                       />
                       <span>{skill}</span>
                     </motion.div>
