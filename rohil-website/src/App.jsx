@@ -51,7 +51,7 @@ const PROJECTS = [
     tech: ["Flask", "Tailwind CSS", "JavaScript", "Python", "React", "Selenium", "SQLAlchemy", "TypeScript", "Anthropic API"],
     link: "https://github.com/tbachu/Vora",
     liveLink: "https://vora-nutrition-git-main-tanish-bachus-projects.vercel.app/",
-    image: "./images/Screenshot 2025-05-13 at 10.30.58 AM.png"
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 10.30.58 AM.png"
   },
   {
     title: "Algorithmic Trading Bot",
@@ -60,7 +60,7 @@ const PROJECTS = [
     </>,
     tech: ["Python", "Random forest", "Scikit-learn", "YFinance API", "SVM", "Monte-Carlo simulations"],
     link: "https://github.com/rohiljain2/algorithmic_trading",
-    image: "./images/Screenshot 2025-05-13 at 1.27.46 PM.png"
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 1.27.46 PM.png"
   },
   {
     title: "Fiscatch - Phishing Detection App",
@@ -69,7 +69,7 @@ const PROJECTS = [
       <div>Developed a phishing detection system using RoBERTa-based LLM and RNN models in Python to classify over 20,000 emails through advanced NLP and metadata analysis.</div>
     </>,
     tech: ["Python", "PyTorch", "NLP", "Transformers", "Neural Networks", "LLMs", "Streamlit"],
-    image: "./images/Screenshot 2025-05-13 at 12.49.57 PM.png"
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 12.49.57 PM.png"
   }
 ];
 
@@ -95,7 +95,7 @@ const EXPERIENCE = [
     period: "Feb. 2025 - Feb. 2025",
     description: "Selected as a participant in Morgan Stanley’s Early Insights Tech Program, gaining hands-on exposure to technology-driven finance, software engineering, and innovation through technical workshops, mentorship, and networking with senior technologists.",
     technologies: [],
-    image: "./images/Screenshot 2025-05-13 at 3.14.52 PM.png",
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 3.14.52 PM.png",
     imagePosition: "right"
   },
   {
@@ -104,7 +104,7 @@ const EXPERIENCE = [
     period: "Sept. 2024 - Present",
     description: "Developed AI models using NLP and reinforcement learning on 15,000+ patient data points, improving cancer treatment recommendations by 25% and reducing healthcare decision-making bias by 30% through comparative analysis of KTO, DPO, and RLHF.",
     technologies: ["Python", "PyTorch", "Tensorflow", "Hugging Face Transformers", "Optuna", "Google Cloud"],
-    image: "./images/Screenshot 2025-05-13 at 2.55.55 PM.png",
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 2.55.55 PM.png",
     imagePosition: "right"
   },
   {
@@ -113,7 +113,7 @@ const EXPERIENCE = [
     period: " Jun. 2023 - Sept. 2023",
     description: "Engineered automated ETL pipelines and implemented 300+ SQL-based data quality rules, reducing processing time by 40%, enhancing data integrity in healthcare analytics, and streamlining onboarding with detailed technical documentation and validation workflows.",
     technologies: ["SQL", "Python", "PyTest", "Jira", "AWS", "Bash", "Confluence"],
-    image: "./images/Screenshot 2025-05-13 at 2.55.06 PM.png",
+    image: "/rohil-website/images/Screenshot 2025-05-13 at 2.55.06 PM.png",
     imagePosition: "right"
   },
 ];
@@ -340,7 +340,7 @@ function TabContent({ tab }) {
                 <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-all duration-300"></div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-40 animate-pulse"></div>
                 <img 
-                  src="./images/Screenshot 2025-05-13 at 9.12.44 PM.png" 
+                  src="/rohil-website/images/Screenshot 2025-05-13 at 9.12.44 PM.png" 
                   alt="Rohil Jain"
                   className="relative w-80 h-80 rounded-full border-4 border-white/10 object-cover object-[center_15%] shadow-lg 
                     hover:border-teal-400/40 transition-all duration-300
@@ -548,7 +548,7 @@ function TabContent({ tab }) {
                 <div className="relative">
                   <div className="h-64 overflow-hidden rounded-xl mb-6">
                     <img 
-                      src="./images/Screenshot 2025-05-13 at 10.07.54 PM.png"
+                      src="/rohil-website/images/Screenshot 2025-05-13 at 10.07.54 PM.png"
                       alt="Trading setup"
                       className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                     />
@@ -574,7 +574,7 @@ function TabContent({ tab }) {
                 <div className="relative">
                   <div className="h-64 overflow-hidden rounded-xl mb-6">
                     <img 
-                      src="./images/Screenshot 2025-05-13 at 10.20.51 PM.png"
+                      src="/rohil-website/images/Screenshot 2025-05-13 at 10.20.51 PM.png"
                       alt="Karate practice"
                       className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                     />
@@ -600,7 +600,7 @@ function TabContent({ tab }) {
                 <div className="relative">
                   <div className="h-64 overflow-hidden rounded-xl mb-6">
                     <img 
-                      src="./images/Screenshot 2025-05-13 at 10.07.06 PM.png"
+                      src="/rohil-website/images/Screenshot 2025-05-13 at 10.07.06 PM.png"
                       alt="Volunteering"
                       className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                     />
