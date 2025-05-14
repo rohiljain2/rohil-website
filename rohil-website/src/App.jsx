@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Code, Briefcase, ExternalLink, Github, Linkedin, Mail, Calendar } from 'lucide-react';
+import { User, Code, Briefcase, ExternalLink, Github, Linkedin, Mail, Calendar, Heart } from 'lucide-react';
 import '@fontsource/playfair-display/700.css';
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/600.css';
@@ -35,7 +35,8 @@ const TECH_ICONS = {
 };
 
 const TABS = [
-  { id: 'about', label: 'About Me', icon: <User size={18} /> },
+  { id: 'about', label: 'Home', icon: <User size={18} /> },
+  { id: 'interests', label: 'Interests', icon: <Heart size={18} /> },
   { id: 'projects', label: 'Projects', icon: <Code size={18} /> },
   { id: 'experience', label: 'Experience', icon: <Briefcase size={18} /> }
 ];
@@ -190,6 +191,39 @@ const skillsCardVariants = {
   }
 };
 
+// Add new animation variants for creative effects
+const floatingCardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100
+    }
+  },
+  hover: {
+    y: -10,
+    scale: 1.02,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10
+    }
+  }
+};
+
+const staggerContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+};
+
 const TypeWriter = ({ text, className, delay = 0.05 }) => {
   const characters = text.split('');
   
@@ -290,13 +324,32 @@ function TabContent({ tab }) {
     >
       {tab === 'about' && (
         <div className="space-y-8">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text flex items-center gap-4"
-            variants={item}
-          >
-            <span>Hello, I'm Rohil!</span>
-            <span className="animate-wave">👋</span>
-          </motion.h1>
+          <div className="flex items-center justify-between gap-8">
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text flex items-center gap-4"
+              variants={item}
+            >
+              <span>Hello, I'm Rohil!</span>
+              <span className="animate-wave">👋</span>
+            </motion.h1>
+            <motion.div
+              variants={item}
+              className="hidden md:block flex-shrink-0"
+            >
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-all duration-300"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-40 animate-pulse"></div>
+                <img 
+                  src="/Screenshot 2025-05-13 at 9.12.44 PM.png" 
+                  alt="Rohil Jain"
+                  className="relative w-80 h-80 rounded-full border-4 border-white/10 object-cover object-[center_15%] shadow-lg 
+                    hover:border-teal-400/40 transition-all duration-300
+                    ring-2 ring-teal-500/20 ring-offset-4 ring-offset-[#0d1117]
+                    group-hover:ring-teal-500/40 group-hover:shadow-teal-500/20"
+                />
+              </div>
+            </motion.div>
+          </div>
           <motion.div 
             variants={item}
             className="bg-[#1a2234] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-teal-500/20 transition-colors"
@@ -452,6 +505,113 @@ function TabContent({ tab }) {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      )}
+      
+      {tab === 'interests' && (
+        <div className="space-y-12">
+          <motion.h2 
+            variants={item}
+            className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text text-center"
+          >
+            Background & Interests
+          </motion.h2>
+
+          {/* Intro section with floating animation */}
+          <motion.div 
+            variants={item}
+            className="relative max-w-4xl mx-auto"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 blur-xl rounded-3xl"></div>
+            <div className="bg-[#1a2234]/80 backdrop-blur-sm rounded-3xl p-8 border border-white/10 relative">
+              <TypeWriter 
+                text="I am originally from Wilton, CT. I'm passionate about combining technology and finance to make a change. My career interests are in Software Engineering or Quantitative Trading, leveraging my technical skills to create innovative solutions in the financial sector."
+                className="text-xl md:text-2xl text-gray-300 text-center"
+                delay={0.05}
+              />
+            </div>
+          </motion.div>
+
+          {/* Hexagonal grid layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Trading & Finance */}
+            <motion.div
+              variants={floatingCardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              className="bg-[#1a2234]/90 backdrop-blur-md rounded-2xl p-6 border border-white/10 transform hover:border-teal-500/40 transition-all duration-300 group"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <div className="relative">
+                  <div className="h-64 overflow-hidden rounded-xl mb-6">
+                    <img 
+                      src="/Screenshot 2025-05-13 at 10.07.54 PM.png"
+                      alt="Trading setup"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-blue-400 text-transparent bg-clip-text mb-4">Trading & Finance</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    I am very passionate about algorithmic trading and financial markets. I combine technical analysis with machine learning to develop trading strategies, allowing me to grow my portfolio from $100,000 to approximately $5,000,000.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Karate */}
+            <motion.div
+              variants={floatingCardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              className="bg-[#1a2234]/90 backdrop-blur-md rounded-2xl p-6 border border-white/10 transform hover:border-teal-500/40 transition-all duration-300 group md:translate-y-12"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <div className="relative">
+                  <div className="h-64 overflow-hidden rounded-xl mb-6">
+                    <img 
+                      src="/Screenshot 2025-05-13 at 10.20.51 PM.png"
+                      alt="Karate practice"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text mb-4">Martial Arts</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    I am a dedicated First-Degree Black Belt martial artist with years of training, learning discipline, focus, and perseverance through the art.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Volunteering */}
+            <motion.div
+              variants={floatingCardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              className="bg-[#1a2234]/90 backdrop-blur-md rounded-2xl p-6 border border-white/10 transform hover:border-teal-500/40 transition-all duration-300 group"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <div className="relative">
+                  <div className="h-64 overflow-hidden rounded-xl mb-6">
+                    <img 
+                      src="/Screenshot 2025-05-13 at 10.07.06 PM.png"
+                      alt="Volunteering"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-4">Community Service</h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    I am actively involved in community service through HindiUSA, a nonprofit teaching Hindi and Indian culture. I am giving back to my heritage through various volunteering initiatives and a positive impact.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       )}
