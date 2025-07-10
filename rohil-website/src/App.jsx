@@ -90,6 +90,24 @@ const SKILLS = [
 
 const EXPERIENCE = [
   {
+    title: "Software Engineering Intern",
+    company: "narb",
+    period: "May. 2025 - Present",
+    description: "Integrated OpenAI Whisper TTS models into a React web app, enabling real-time text-to-speech functionality for enhanced user experience. Developed a Flask API to handle audio processing and storage in MongoDB, ensuring efficient data management and retrieval.",
+    technologies: ["TTS Models (OpenAI Whisper)", "Python", "React", "Flask", "MongoDB", "APIs"],
+    image: "/rohil-website/images/narb.png",
+    imagePosition: "right"
+  },
+  {
+    title: "Virtual Insights Program Participant",
+    company: "Goldman Sachs",
+    period: "Jun. 2025 - Jun. 2025",
+    description: "Networked with senior technologists and participated in workshops on software engineering, data analytics, and financial technology, gaining insights into Goldman Sachs' innovative tech solutions and culture.",
+    technologies: [],
+    image: "/rohil-website/images/gs.png",
+    imagePosition: "right"
+  },
+  {
     title: "Early Insights Participant",
     company: "Morgan Stanley",
     period: "Feb. 2025 - Feb. 2025",
@@ -99,21 +117,30 @@ const EXPERIENCE = [
     imagePosition: "right"
   },
   {
-    title: "AI Researcher",
-    company: "UNC Gillings School of Global Public Health",
+    title: "AI/ML Researcher",
+    company: "UNC Gillings School of Global Public Health + Fred Hutchinson Cancer Center",
     period: "Sept. 2024 - Present",
-    description: "Developed AI models using NLP and reinforcement learning on 15,000+ patient data points, improving cancer treatment recommendations by 25% and reducing healthcare decision-making bias by 30% through comparative analysis of KTO, DPO, and RLHF.",
-    technologies: ["Python", "PyTorch", "Tensorflow", "Hugging Face Transformers", "Optuna", "Google Cloud"],
-    image: "/rohil-website/images/gillings.png",
+    description: "Training LLMs with KTO and DPO for patient-provider vaccine hesitancy communication. Developed a custom LLM using PyTorch and Hugging Face Transformers, achieving 10% better accuracy than traditional methods in classifying vaccine hesitancy levels from patient data. Implemented advanced NLP techniques for data preprocessing and model fine-tuning.",
+    technologies: ["Python", "PyTorch", "Tensorflow", "Hugging Face Transformers", "Nvidia CUDA", "Google Cloud"],
+    image: "/rohil-website/images/gillingsNew.png",
     imagePosition: "right"
   },
   {
     title: "Software Engineering Intern",
     company: "AdhereHealth",
-    period: " Jun. 2023 - Sept. 2023",
+    period: " Jul. 2023 - Sept. 2023",
     description: "Engineered automated ETL pipelines and implemented 300+ SQL-based data quality rules, reducing processing time by 40%, enhancing data integrity in healthcare analytics, and streamlining onboarding with detailed technical documentation and validation workflows.",
-    technologies: ["SQL", "Python", "PyTest", "Jira", "AWS", "Bash", "Confluence"],
+    technologies: ["AWS (Glue, Lambda, Redshift)", "Python", "Linux", "SQL", "GitHub", "Jira", "Confluence"],
     image: "/rohil-website/images/adherehealth.png",
+    imagePosition: "right"
+  },
+  {
+    title: "Cybersecurity Intern",
+    company: "George Washington University",
+    period: " Jun. 2023 - Aug. 2023",
+    description: "Researched and created a transformer-based LLM to detect phishing emails, achieving 96.6% accuracy on a dataset of 20,000+ emails. Developed a Streamlit app for real-time email analysis and deployed the model on AWS for scalability.",
+    technologies: ["PyTorch", "Python", "LLMs (BERT/RoBERTa)", "Streamlit", "AWS", "AWS (EC2, S3)"],
+    image: "/rohil-website/images/gwu.png",
     imagePosition: "right"
   },
 ];
